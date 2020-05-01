@@ -2,10 +2,6 @@ import requests
 import os
 from fake_useragent import UserAgent
 from torrequest import TorRequest
-
-except:
-	os.system("pip install torrequest && clear")
-	from torrequest import TorRequest
     
 with TorRequest(password='none') as tr:
 
