@@ -1,11 +1,24 @@
-import urllib.request
-req = urllib.request.Request(
-    https://secdevil.com/, 
-    data=None, 
-    headers={
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36'
-    }
-)
+import requests
+import os
+from fake_useragent import UserAgent
+from torrequest import TorRequest
 
-f = urllib.request.urlopen(req)
-print(f.read().decode('utf-8'))
+except:
+	os.system("pip install torrequest && clear")
+	from torrequest import TorRequest
+    
+with TorRequest(password='none') as tr:
+
+ua = UserAgent()
+header = {'User-Agent':str(ua.chrome)}
+
+a = str(input("URL    - "))
+x = int(input("Amount - "))
+
+def run():
+	for i in range(x):
+		tr.reset_identity()
+		response= tr.get(a)
+		print(i+1)
+
+run()
